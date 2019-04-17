@@ -1,7 +1,6 @@
 import React from 'react';
 import { Gitmoji, GitmojiData } from '@/types';
 import { Card, Col, Row } from 'antd';
-import randomColor from 'randomcolor';
 declare const window: any;
 
 const EXPEND_HEIGHT = 560;
