@@ -1,0 +1,21 @@
+{
+  "pluginName": "gitmoji",
+  "description": "git commit 中添加 emoji",
+  "main": "./dist/index.html",
+  "version": "1.0.0",
+  "logo": "./logo.png",
+  "preload": "./preload.js",
+  "development": {
+    "main": "http://localhost:8000/index.html"
+  },
+  "features": [
+    {
+      "code": "gitmoji",
+      "explain": "查查 Gitmoji",
+      "cmds":["gitmoji", "emoji", "gmj", "emj"]
+    }
+  ],
+  "pluginSetting": {
+    "height": 1
+  }
+}
