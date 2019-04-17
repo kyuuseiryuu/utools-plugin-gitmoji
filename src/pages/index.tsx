@@ -31,11 +31,10 @@ export default class Index extends React.Component<any, ReturnType<typeof initSt
     const gitmojiData = await fetchGitmojiData() || window.helper.defaultData;
     this.setState({ gitmojis: gitmojiData.gitmojis, displayGitmojis: gitmojiData.gitmojis });
     utools.setExpendHeight(EXPEND_HEIGHT);
-    utools.setSubInput(this.handleSearch);
+    utools.setSubInput(this.handleSearch, '输入关键词搜索，点击 emoji 复制');
   }
   handleCopyCode = (code) => {
     window.helper.electron.clipboard.writeText(code);
-    utools.showNotification('复制完成', '', true);
     utools.setSubInputValue('');
     utools.hideMainWindow();
   };
@@ -48,11 +47,15 @@ export default class Index extends React.Component<any, ReturnType<typeof initSt
       displayGitmojis: this.state.gitmojis.filter(e => {
         return e.code === descOrName
           || e.name.indexOf(descOrName) > -1
-          || e.name.replace(/\-/g, '').toLowerCase().indexOf(descOrName.toLowerCase()) > -1
+          || e.name.toLowerCase().indexOf(descOrName.toLowerCase()) > -1
           || e.description.indexOf(descOrName) > -1
-          || e.description.replace(/\s/g, '').toLowerCase().indexOf(descOrName.toLowerCase()) > -1;
+          || e.description.toLowerCase().indexOf(descOrName.toLowerCase()) > -1;
       }),
     });
+  };
+  handleTranslate = (english) => {
+    utools.redirect('translate', english);
+    utools.showMainWindow();
   };
   render() {
     return (
@@ -63,19 +66,23 @@ export default class Index extends React.Component<any, ReturnType<typeof initSt
               <Col span={6} key={e.name} style={{ marginTop: '10px' }}>
                 <Card
                   hoverable
+                  style={{ height: 260 }}
                   cover={(
                     <div
-                      style={{ fontSize: '5em', textAlign: 'center', backgroundColor: randomColor() }}
+                      style={{ fontSize: '5em', textAlign: 'center' }}
+                      onClick={() => this.handleCopyCode(e.code)}
                     >
                       {e.emoji}
                     </div>
                   )}
-                  style={{ height: 260 }}
-                  onClick={() => this.handleCopyCode(e.code)}
                 >
                   <Card.Meta
                     title={e.code}
-                    description={e.description}
+                    description={(
+                      <a onClick={() => this.handleTranslate(e.description)}>
+                        {e.description}
+                      </a>
+                    )}
                   />
                 </Card>
               </Col>

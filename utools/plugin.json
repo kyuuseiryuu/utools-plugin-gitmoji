@@ -1,10 +1,12 @@
 {
   "pluginName": "gitmoji",
   "description": "git commit 中添加 emoji",
+  "author": "kyuuseiryuu",
   "main": "./dist/index.html",
   "version": "1.0.0",
   "logo": "./logo.png",
   "preload": "./preload.js",
+  "homepage": "https://github.com/kyuuseiryuu/utools-plugin-gitmoji",
   "development": {
     "main": "http://localhost:8000/index.html"
   },
