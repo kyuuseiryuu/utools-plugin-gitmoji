@@ -10,7 +10,7 @@ Demo 向
 
 [gitmoji](https://gitmoji.carloscuesta.me/) 在你的 commit 中添加 emoji。
 
-单击图标复制 gitmoji code, 黏贴到你的 commit 信息中。
+单击图标复制 gitmoji code, 黏贴到你的 commit 信息中。[下载](https://github.com/kyuuseiryuu/utools-plugin-gitmoji/releases)
 
 ![](./images/normal.png)
 
