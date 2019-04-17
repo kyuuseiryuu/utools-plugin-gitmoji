@@ -12,8 +12,8 @@ Demo 向
 
 单击图标复制 gitmoji code, 黏贴到你的 commit 信息中。
 
-![](./utools/images/normal.png)
+![](./images/normal.png)
 
-![](./utools/images/search.png)
+![](./images/search.png)
 
 
