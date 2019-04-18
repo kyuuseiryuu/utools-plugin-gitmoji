@@ -1,9 +1,8 @@
 import React from 'react';
-import { Gitmoji, GitmojiData } from '@/types';
+import { Gitmoji } from '@/types';
 import { Card, Col, Row } from 'antd';
 declare const window: any;
 
-const EXPEND_HEIGHT = 560;
 const initState = () => {
   return {
     gitmojis: [] as Gitmoji[],
@@ -11,26 +10,17 @@ const initState = () => {
   };
 };
 
-const fetchGitmojiData = async (): Promise<GitmojiData|void> => {
-  const url = `https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json`;
-  const response = await fetch(url, {
-    method: 'GET',
-  });
-  if (response.ok) {
-    return await response.json() as GitmojiData;
-  }
-};
-
 export default class Index extends React.Component<any, ReturnType<typeof initState>> {
   constructor(props) {
     super(props);
     this.state = initState();
+    utools.onPluginEnter(() => {
+      utools.setSubInput(this.handleSearch, '输入关键词搜索，点击 emoji 复制');
+    });
   }
-  async componentDidMount() {
-    const gitmojiData = await fetchGitmojiData() || window.helper.defaultData;
+  componentDidMount() {
+    const gitmojiData = window.helper.defaultData;
     this.setState({ gitmojis: gitmojiData.gitmojis, displayGitmojis: gitmojiData.gitmojis });
-    utools.setExpendHeight(EXPEND_HEIGHT);
-    utools.setSubInput(this.handleSearch, '输入关键词搜索，点击 emoji 复制');
   }
   handleCopyCode = (code) => {
     window.helper.electron.clipboard.writeText(code);
