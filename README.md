@@ -16,8 +16,15 @@ Demo 向
 
 ![](./images/search.png)
 
+## 安装
+1. 下载 [uTools](https://u.tools)
+2. 在 [releases](https://github.com/kyuuseiryuu/utools-plugin-gitmoji/releases) 中下载插件 
+3. 呼出 uTools 将 `.upx` 文件拖入 uTools 中
 
-## 快速开始
+![](./images/install.gif)
+
+
+## 开发
 
 ### 编码
 
