@@ -17,3 +17,19 @@ Demo 向
 ![](./images/search.png)
 
 
+## 快速开始
+
+### 编码
+
+1. 克隆这个仓库
+2. `yarn` 安装依赖
+3. `yarn start` 像启动一个 `umi` 项目一样跑起来
+4. 复制 `/utools/plugin.json` 文件并快捷键呼出 `uTools` 安装插件
+5. 输入快捷指令进入插件吧！
+
+
+### 打包
+1. 先运行 `yarn build` 将 `umi` 项目打包
+2. 到 `uTools` 插件中心打包插件
+3. 大功告成！
+
